@@ -2,38 +2,47 @@ function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
         case 0:
-            return "Rock";
+            return "ROCK";
         case 1:
-            return "Paper";
+            return "PAPER";
         case 2:
-            return "Scissors";
+            return "SCISSORS";
+    }
+}
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === "ROCK" && computerSelection === "PAPER") {
+        return "You lost! Paper won against Rock!";
+    } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
+        return "You lost! Scissors won against Paper!";
+    } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
+        return "You lost! Rock won against Scissors!";
+    } else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
+        return "You won! Rock won against Scissors!";
+    } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
+        return "You won! Paper won against Rock!";
+    } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
+        return "You won! Scissors won against Paper!";
+    } else if (playerSelection === "ROCK" && computerSelection === "ROCK") {
+        return "Tie! Nobody won!";
+    } else if (playerSelection === "PAPER" && computerSelection === "PAPER") {
+        return "Tie! Nobody won!";
+    } else if (playerSelection === "SCISSORS" && computerSelection === "SCISSORS") {
+        return "Tie! Nobody won!";
     }
 }
 
 const computerSelection = getComputerChoice();
-const playerSelection = prompt("Choose: Rock, Paper or Scissors?");
+const playerSelection = prompt("Choose: Rock, Paper, or Scissors?").toUpperCase()
 console.log(playRound(playerSelection, computerSelection));
 
-function game(PlayRound, PlayRound, PlayRound, PlayRound, PlayRound) {
-    function playRound(playerSelection, computerSelection) {
-        if (playerSelection === "Rock" && computerSelection === "Paper") {
-            return("You lost! Paper won against Rock!")
-        } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-            return("You lost! Scissors won against Paper!")
-        } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-            return("You lost! Rock won against Scissors!")
-        } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-            return("You won! Rock won against Scissors!")
-        } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-            return("You won! Paper won against Rock!")
-        } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-            return("You won! Scissors won against Paper!")
-        } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-            return("Tie! Nobody won!")
-        } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-            return("Tie! Nobody won!")
-        } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
-            return("Tie! Nobody won!")
-        }   
-    }  
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const computerSelection = getComputerChoice();
+        const playerSelection = prompt("Choose: Rock, Paper, or Scissors?").toUpperCase()
+        console.log(playRound(playerSelection, computerSelection));
+    }
 }
+
+game();
