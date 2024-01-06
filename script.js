@@ -30,6 +30,9 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "SCISSORS" && computerSelection === "SCISSORS") {
         return "Tie! Nobody won!";
     }
+     else {
+         return "Choose Rock, Paper, Scissors";
+     }
 }
 
 const computerSelection = getComputerChoice();
